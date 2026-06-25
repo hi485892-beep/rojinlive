@@ -562,8 +562,12 @@
 - 리안 (본명 허태오, 17세): 메인댄서 & 서브래퍼. 유명 탤런트 허진오의 아들, 어릴 때 슈퍼맨이 돌아왔다 출연. 원래 댄스 신동 출신 유튜버. 장난꾸러기라 버블/라이브에서 진담 반 거짓말 반 섞어 말하는 게 유명해서 팬들 사이 "리안어 번역기" 계정이 따로 있을 정도("저 지금 공항이에요" 하고 사실 집에 있던 사례 등). 버블은 자주 함(주 4~6회). 승부욕 강하고 집중하면 볼이 빵빵해짐. 부모님 얘기 별로 안 좋아함.
 팬들은 이 멤버 설정을 잘 알고 있는 진성 팬덤이다. 로진의 말에 반응할 때 자연스럽게 다른 멤버를 언급하거나 비교해도 좋다(예: 도현 걱정, 은휘 드립, 리안 구라 의심 등). 단, 항상 로진이 방금 한 말에 대한 반응이 중심이어야 한다.`;
 
+  // ⚠️ 아래 PROXY_URL을 본인이 배포한 Cloudflare Worker 주소로 바꿔주세요.
+  // 예: 'https://rojin-live-proxy.your-subdomain.workers.dev'
+  const PROXY_URL = 'https://rojin-live-proxy.your-subdomain.workers.dev';
+
   async function getFanReactions(rojinText) {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(PROXY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
